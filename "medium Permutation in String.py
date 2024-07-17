@@ -1,6 +1,8 @@
 def checkInclusion(self, s1: str, s2: str) -> bool:
-    find, have = Counter(s1), Counter(s2[:len(s1)])
-    same = sum([int(find[c] == have[c]) for c in find])
+    same, find, have = 0, Counter(s1), Counter(s2[:len(s1)])
+
+    for c in find:
+        same += int(find[c] == have[c])
 
     for i in range(len(s2) - len(s1)):
         if same == len(find):
