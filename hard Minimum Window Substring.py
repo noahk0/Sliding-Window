@@ -17,12 +17,14 @@ def minWindow(self, s: str, t: str) -> str:
             d[s[l]] -= 1
             l += 1
 
-        if have == len(find):
-            if r + win[0] < l + win[1]:
-                win = l, r
+        if have != len(find):
+            continue
+            
+        if r + win[0] < l + win[1]:
+            win = l, r
 
-            d[s[l]] -= 1
-            l += 1
-            have -= 1
+        d[s[l]] -= 1
+        l += 1
+        have -= 1
 
     return '' if win[1] == len(s) else s[win[0] : win[1] + 1]
